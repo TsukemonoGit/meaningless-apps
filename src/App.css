@@ -1,0 +1,586 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+  background: #f7f5f2;
+  color: #333;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ヘッダー */
+.header {
+  background: #fff;
+  border-bottom: 1px solid #e8e5e0;
+  padding: 1rem 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.header-inner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.header-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #5a5650;
+  letter-spacing: 0.02em;
+}
+
+.back-button {
+  font-size: 0.95rem;
+  color: #7c7670;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.back-button:hover {
+  color: #333;
+}
+
+/* メイン */
+.main {
+  flex: 1;
+  max-width: 960px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 2rem 1.5rem;
+}
+
+/* ホーム画面 */
+.home-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #5a5650;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+.app-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid #ece9e3;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.75rem;
+}
+
+.app-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.app-card-emoji {
+  font-size: 2.5rem;
+}
+
+.app-card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #3d3a36;
+}
+
+.app-card-desc {
+  font-size: 0.85rem;
+  color: #8a8580;
+}
+
+/* 各アプリ共通 */
+.app-container {
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.app-container h2 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #3d3a36;
+  margin-bottom: 0.5rem;
+}
+
+.app-description {
+  font-size: 0.9rem;
+  color: #8a8580;
+  margin-bottom: 1.5rem;
+}
+
+.app-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* ボタン */
+.action-button {
+  background: #5a5650;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.75rem;
+  font-size: 1rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.action-button:hover {
+  background: #3d3a36;
+}
+
+.action-button:active {
+  transform: scale(0.97);
+}
+
+.action-button:disabled {
+  background: #a8a49e;
+  cursor: not-allowed;
+}
+
+.reset-button {
+  background: transparent;
+  color: #7c7670;
+  border: 1px solid #d8d5d0;
+  border-radius: 8px;
+  padding: 0.6rem 1.5rem;
+  font-size: 0.9rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.reset-button:hover {
+  background: #f5f3f0;
+}
+
+/* 虚無ボタン */
+.emptiness-button {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: #2a2825;
+  color: #fff;
+  border: none;
+  font-size: 1.1rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.1s;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.emptiness-button:hover {
+  background: #1a1816;
+}
+
+.emptiness-button:active {
+  transform: scale(0.95);
+}
+
+.emptiness-result {
+  font-size: 1rem;
+  color: #6a6560;
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+/* 架空地名 */
+.place-list {
+  margin-top: 2rem;
+}
+
+.place-list h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #5a5650;
+  margin-bottom: 1rem;
+}
+
+.place-list ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.place-list li {
+  background: #fff;
+  border: 1px solid #ece9e3;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  color: #3d3a36;
+}
+
+/* 称号メーカー */
+.title-result {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.title-label {
+  font-size: 0.9rem;
+  color: #8a8580;
+  margin-bottom: 0.75rem;
+}
+
+.title-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #5a5650;
+  letter-spacing: 0.05em;
+}
+
+/* 二択 */
+.choice-container {
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.choice-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.choice-button {
+  flex: 1;
+  max-width: 200px;
+  padding: 1.25rem 1rem;
+  border-radius: 12px;
+  border: 2px solid #e0ddd8;
+  background: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-family: inherit;
+  color: #3d3a36;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.choice-button:hover {
+  border-color: #b8b4ae;
+}
+
+.choice-button.selected {
+  border-color: #5a5650;
+  background: #5a5650;
+  color: #fff;
+}
+
+.choice-vs {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #b8b4ae;
+}
+
+/* タイマー */
+.timer-display {
+  font-size: 3rem;
+  font-weight: 300;
+  color: #3d3a36;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.05em;
+}
+
+.timer-controls {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+/* 存在報告 */
+.report-result {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.report-text {
+  font-size: 1.25rem;
+  color: #3d3a36;
+  font-weight: 500;
+  line-height: 1.8;
+}
+
+/* 日記 */
+.journal-input {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.journal-input input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 1px solid #d8d5d0;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  background: #fff;
+}
+
+.journal-input input:focus {
+  outline: none;
+  border-color: #5a5650;
+}
+
+.journal-entries {
+  margin-top: 1rem;
+}
+
+.journal-entries h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #5a5650;
+  margin-bottom: 1rem;
+}
+
+.journal-entry {
+  background: #fff;
+  border: 1px solid #ece9e3;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.journal-date {
+  font-size: 0.8rem;
+  color: #8a8580;
+  margin-bottom: 0.5rem;
+}
+
+.journal-text {
+  font-size: 1rem;
+  color: #3d3a36;
+}
+
+/* カレンダー */
+.calendar-input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.calendar-input input {
+  padding: 0.75rem 1rem;
+  border: 1px solid #d8d5d0;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  background: #fff;
+}
+
+.calendar-input input:focus {
+  outline: none;
+  border-color: #5a5650;
+}
+
+.calendar-list {
+  margin-top: 1rem;
+}
+
+.calendar-list h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #5a5650;
+  margin-bottom: 1rem;
+}
+
+.calendar-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #ece9e3;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  gap: 1rem;
+}
+
+.calendar-date {
+  font-size: 0.9rem;
+  color: #5a5650;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.calendar-event {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.event-text {
+  font-size: 1rem;
+  color: #3d3a36;
+}
+
+.event-response {
+  font-size: 0.85rem;
+  color: #a8a49e;
+  font-style: italic;
+}
+
+/* お告げガチャ */
+.gacha-button {
+  font-size: 1.1rem;
+  padding: 0.85rem 2rem;
+}
+
+.oracle-result {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.oracle-text {
+  font-size: 1.3rem;
+  color: #3d3a36;
+  font-weight: 500;
+  line-height: 1.8;
+}
+
+/* 概念変換機 */
+.converter-input {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.converter-input input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 1px solid #d8d5d0;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  background: #fff;
+}
+
+.converter-input input:focus {
+  outline: none;
+  border-color: #5a5650;
+}
+
+.converter-result {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.converter-result p {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #5a5650;
+}
+
+.converter-history {
+  margin-top: 2rem;
+}
+
+.converter-history h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #5a5650;
+  margin-bottom: 1rem;
+}
+
+.converter-history ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.converter-history li {
+  background: #fff;
+  border: 1px solid #ece9e3;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  color: #3d3a36;
+}
+
+/* レスポンシブ */
+@media (max-width: 640px) {
+  .main {
+    padding: 1.5rem 1rem;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .app-card {
+    flex-direction: row;
+    justify-content: flex-start;
+    text-align: left;
+    gap: 1rem;
+  }
+
+  .app-card-emoji {
+    font-size: 2rem;
+    margin-bottom: 0;
+  }
+
+  .timer-display {
+    font-size: 2.25rem;
+  }
+
+  .title-value {
+    font-size: 1.4rem;
+  }
+
+  .converter-result p {
+    font-size: 1.2rem;
+  }
+
+  .calendar-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .journal-input {
+    flex-direction: column;
+  }
+
+  .converter-input {
+    flex-direction: column;
+  }
+
+  .choice-buttons {
+    flex-direction: column;
+  }
+
+  .choice-button {
+    max-width: 100%;
+    width: 100%;
+  }
+}
