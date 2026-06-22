@@ -2,6 +2,8 @@
 
 https://10-tiny-useless-tools.vercel.app/
 
+[まとめたー](https://matometr.naczuki.workers.dev/naddr1qvzqqqr4gupzpq4np5cygstsu65vsx0ggphrv23kj4z553sh39xwyur08pqvdsqrqq3k6ct5dakk2arj95crzj6k29g4q4z5g3vrwkjnxp94wvpkf4g5w3zwfezspcngs7)
+
 # つくった環境
 
 Qwen3.6-35B-A3B-APEX-I-Compact + OpenCode
