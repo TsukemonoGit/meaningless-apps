@@ -1,4 +1,4 @@
-import { createHashRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './components/Home';
 import EmptyButton from './components/apps/EmptyButton';
@@ -12,7 +12,7 @@ import UnsupportingCalendar from './components/apps/UnsupportingCalendar';
 import MysteriousOracleGacha from './components/apps/MysteriousOracleGacha';
 import ConceptConverter from './components/apps/ConceptConverter';
 
-const router = createHashRouter([
+const router = createBrowserRouter([
   {
     path: '/',
     element: <Layout />,
